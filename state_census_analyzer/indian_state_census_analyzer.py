@@ -32,6 +32,29 @@ class StateCensusAnalyser:
             for i in statecensus:
                 return len(list(statecensus))
 
+    @staticmethod
+    def check_file():
+        """
+            Description:
+                Function to ccheck file is exist or not
+            Parameter:
+                None
+            Return:
+                None
+        """
+        try:
+            f = open("StateCensusData.csv")
+            f.close()
+            print("File Exists")
+            return "StateCensusData.csv"
+
+        except Exception:
+            print("Sorry file does not exist")
+        finally :
+            print("file check completed")
+
+
 if __name__ == '__main__':
-    object = StateCensusAnalyser()
-    object.count_number_records()
+    StateCensusAnalyser = StateCensusAnalyser()
+    StateCensusAnalyser.count_number_records()
+    StateCensusAnalyser.check_file()
