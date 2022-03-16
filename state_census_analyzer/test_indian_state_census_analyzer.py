@@ -17,6 +17,9 @@ class Test:
     def test_check_header():
         assert StateCensusAnalyser.check_header() == True
 
+    @staticmethod
+    def test_check_delimiter():
+        assert StateCensusAnalyser.check_delimiter() == ","
 
 if __name__ == '__main__':
     Test()

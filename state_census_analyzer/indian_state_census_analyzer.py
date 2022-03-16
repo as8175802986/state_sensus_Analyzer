@@ -91,6 +91,25 @@ class StateCensusAnalyser:
         except StateCensusAnalyser:
             print("headers Not found")
 
+    @staticmethod
+    def check_delimiter():
+        """
+            Description:
+                Function to check delimiter is correct or not
+            Parameter:
+                None
+            Return:
+                delimiter
+        """
+        try:
+            with open("StateCensusData.csv", newline="") as data:
+                dialect = csv.Sniffer().sniff(data.read())
+                if dialect.delimiter == ',':
+                    return dialect.delimiter
+                else:
+                    raise Exception(StateCensusAnalyser)
+        except StateCensusAnalyser:
+            print("Incorrect delimiter found")
 
 if __name__ == '__main__':
     StateCensusAnalyser = StateCensusAnalyser()
