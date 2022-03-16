@@ -67,9 +67,29 @@ class StateCensusAnalyser:
             if result:
                 return ".csv"
             else:
-                raise (StateCensusAnalyser)
+                raise Exception (StateCensusAnalyser)
         except StateCensusAnalyser:
             print("Sorry! CSV file does not exist")
+
+    @staticmethod
+    def check_header():
+        """
+            Description:
+                Function to check header is present or not
+            Parameter:
+                None
+            Return:
+                .csv
+        """
+        try:
+            with open("StateCensusData.csv", "r") as data:
+                headers = csv.Sniffer().has_header(data.read())
+                if headers:
+                    return headers
+                else:
+                    raise Exception(StateCensusAnalyser)
+        except StateCensusAnalyser:
+            print("headers Not found")
 
 
 if __name__ == '__main__':
@@ -77,3 +97,4 @@ if __name__ == '__main__':
     StateCensusAnalyser.count_number_records()
     StateCensusAnalyser.check_file()
     StateCensusAnalyser.check_file_extension()
+    StateCensusAnalyser.check_header()

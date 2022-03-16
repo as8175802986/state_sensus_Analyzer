@@ -8,9 +8,15 @@ class Test:
     @staticmethod
     def test_check_file():
         assert StateCensusAnalyser.check_file() == "StateCensusData.csv"
+
     @staticmethod
     def test_check_file_extension():
         assert StateCensusAnalyser.check_file_extension() == ".csv"
+
+    @staticmethod
+    def test_check_header():
+        assert StateCensusAnalyser.check_header() == True
+
 
 if __name__ == '__main__':
     Test()
