@@ -50,8 +50,7 @@ class StateCensusAnalyser:
 
         except Exception:
             print("Sorry file does not exist")
-        finally :
-            print("file check completed")
+
 
 
 if __name__ == '__main__':
