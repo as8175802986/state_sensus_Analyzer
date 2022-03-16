@@ -51,9 +51,29 @@ class StateCensusAnalyser:
         except Exception:
             print("Sorry file does not exist")
 
+    @staticmethod
+    def check_file_extension():
+        """
+            Description:
+                Function to check csv file exists or not
+            Parameter:
+                None
+            Return:
+                .csv
+        """
+        try:
+            file = "StateCensusData.csv"
+            result = file.endswith(".csv")
+            if result:
+                return ".csv"
+            else:
+                raise (StateCensusAnalyser)
+        except StateCensusAnalyser:
+            print("Sorry! CSV file does not exist")
 
 
 if __name__ == '__main__':
     StateCensusAnalyser = StateCensusAnalyser()
     StateCensusAnalyser.count_number_records()
     StateCensusAnalyser.check_file()
+    StateCensusAnalyser.check_file_extension()
