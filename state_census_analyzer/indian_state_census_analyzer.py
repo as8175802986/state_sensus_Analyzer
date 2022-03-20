@@ -1,6 +1,8 @@
 import pytest
 import csv
+
 class StateCensusAnalyser:
+    
     @staticmethod
     def state_census():
         """
@@ -15,7 +17,6 @@ class StateCensusAnalyser:
             statecensus = csv.DictReader(data, delimiter=',')
             for i in statecensus:
                 print(i)
-
     @staticmethod
     def count_number_records():
         """
@@ -31,12 +32,11 @@ class StateCensusAnalyser:
             statecensus = csv.DictReader(data, delimiter=',')
             for i in statecensus:
                 return len(list(statecensus))
-
     @staticmethod
     def check_file():
         """
             Description:
-                Function to ccheck file is exist or not
+                Function to check file is exist or not
             Parameter:
                 None
             Return:
@@ -45,9 +45,8 @@ class StateCensusAnalyser:
         try:
             f = open("StateCensusData.csv")
             f.close()
-            print("File Exists")
+            #print("File Exists")
             return "StateCensusData.csv"
-
         except Exception:
             print("Sorry file does not exist")
 
@@ -102,7 +101,7 @@ class StateCensusAnalyser:
                 delimiter
         """
         try:
-            with open("StateCensusData.csv", newline="") as data:
+            with open("StateCensusData.csv",'r',newline='') as data:
                 dialect = csv.Sniffer().sniff(data.read())
                 if dialect.delimiter == ',':
                     return dialect.delimiter
