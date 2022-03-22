@@ -4,71 +4,64 @@ from state_sensus_Analyzer.state_census_analyzer.indian_state_census_analyzer im
 class Test:
     @staticmethod
     def test_number_records_matches():
+        result = StateCensusAnalyser.count_number_records()
+        expected = 13
+        assert (result == expected)
 
-        try:
-            result = StateCensusAnalyser.count_number_records()
-            expected = 13
-            if result==expected:
-                return result
-
-            else:
-                raise (TypeError)
-        except (TypeError):
-            print("count not match")
-
-
+    @staticmethod
+    def test_number_records_not_matches():
+        result = StateCensusAnalyser.count_number_records()
+        expected = 12
+        assert (result != expected)
 
     @staticmethod
     def test_check_file():
-        try:
-            result = StateCensusAnalyser.check_file()
-            expected = "StateCensusData.csv"
-            if result == expected:
-                return result
+        result = StateCensusAnalyser.check_file()
+        expected = "StateCensusData.csv"
+        assert (result == expected)
 
-            else:
-                raise (TypeError)
-        except (TypeError):
-            print("invalid file")
+    @staticmethod
+    def test_check_file_not_valid():
+        result = StateCensusAnalyser.check_file()
+        expected = "StausData.csv"
+        assert (result != expected)
 
     @staticmethod
     def test_check_file_extension():
-        try:
-            result = StateCensusAnalyser.check_file_extension()
-            expected = ".csv"
-            if result == expected:
-                return result
+        result = StateCensusAnalyser.check_file_extension()
+        expected = ".csv"
+        assert (result == expected)
 
-            else:
-                raise (TypeError)
-        except (TypeError):
-            print("invalid extension")
+    @staticmethod
+    def test_check_file_extension_not_valid():
+        result = StateCensusAnalyser.check_file_extension()
+        expected = ".pdf"
+        assert (result != expected)
 
     @staticmethod
     def test_check_header():
-        try:
-            result = StateCensusAnalyser.check_header()
-            expected = True
-            if result == expected:
-                return result
+        result = StateCensusAnalyser.check_header()
+        expected = True
+        assert (result == expected)
 
-            else:
-                raise (TypeError)
-        except (TypeError):
-            print("header not found ")
+    @staticmethod
+    def test_check_header_not_valid():
+        result = StateCensusAnalyser.check_header()
+        expected = False
+        assert (result != expected)
 
     @staticmethod
     def test_check_delimiter():
-        try:
-            result = StateCensusAnalyser.check_delimiter()
-            expected = ','
-            if result == expected:
-                return result
+        result = StateCensusAnalyser.check_delimiter()
+        expected = ','
+        assert (result == expected)
 
-            else:
-                raise (TypeError)
-        except (TypeError):
-            print("incorrect delimiter found ")
+    @staticmethod
+    def test_check_delimiter_not_valid():
+        result = StateCensusAnalyser.check_delimiter()
+        expected = '.'
+        assert (result != expected)
+
 
 if __name__ == '__main__':
     Test()
